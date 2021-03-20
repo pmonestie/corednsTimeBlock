@@ -4,7 +4,7 @@ A plugin to selectively block dns lookup for ip and time combination. Inspired f
 ## Description
 use this to selectively block IP between a time range
 
-##Syntax/Example
+## Syntax
 Example below blocks roblox.com every day from 8am to 5pm for a given IP. Outside the range normal forward is applied.
 ```
 roblox.com:53 {
@@ -23,17 +23,17 @@ roblox.com:53 {
 
 - **IP** Typical CIDR notation and single IP address are supported - In the example above single IP:192.168.86.74 
 
-##install
+## install
 checkout coreDns at https://github.com/coredns/coredns
 
 edit plugin.cfg and add 
 ```
 ...
-timeblock:https://github.com/pmonestie/corednsTimeBlock.git
+timeblock:github.com/pmonestie/corednsTimeBlock/timeblock
+
 ...
 
 ```
-
 Make sure to add that plugin near the top, probably next to acl plugin    
 run
 ```
@@ -41,3 +41,16 @@ go generate
 go run coredns.go
 ```
 
+## example
+block roblox from 9am to 5pm
+This is combined with cache...
+```
+roblox.com:53 {
+    cache 100
+    timeblock 0:7-09:00-17:00 192.168.86.75
+    forward . 8.8.8.8:53
+}
+.:53 {
+    forward . 8.8.8.8:53
+}
+```
