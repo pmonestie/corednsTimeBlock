@@ -30,9 +30,10 @@ func setup(c *caddy.Controller) error {
 }
 
 func parse(c *caddy.Controller) (TIME, error) {
+	//Brute force config read, no checks!!
 	a := TIME{}
 	a.iptree = iptree.NewTree()
-	c.Next()                  // Skip the plugin name, "foo" in this case.
+	c.Next()                  // Skip the plugin name, "timeblock" in this case.
 	c.Next()
 	value := c.Val()
 	a.incRange = createRange(value)

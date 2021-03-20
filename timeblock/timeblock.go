@@ -28,7 +28,6 @@ type IncRange struct {
 func (a TIME) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) (int, error) {
 	state := request.Request{W: w, Req: r}
 	ip := net.ParseIP(state.IP())
-	//hours, minutes, _ := time.Now().Clock()
 	hours, minutes, _ := time.Now().Clock()
 	currentTimeMin := hours*60 + minutes
 	currentDay := (int)(time.Now().Weekday())
