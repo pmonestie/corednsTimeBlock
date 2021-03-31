@@ -34,7 +34,7 @@ timeblock:github.com/pmonestie/corednsTimeBlock/timeblock
 ...
 
 ```
-Make sure to add that plugin near the top, probably next to acl plugin: remember that plugins are executed in order, so that one definately needs to be before forward.
+Make sure to add that plugin near the top, next to acl plugin is a good place: remember that plugins are executed in order, so it definately needs to be before forward plugin
 run
 ```
 go generate
