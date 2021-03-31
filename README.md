@@ -13,7 +13,7 @@ roblox.com:53 {
 }
 ```
 
-- **date range** the time range as day of week, startTime, endTime:
+- **date range** the time range as day of week, startTime, endTime. The time is local time, there is not timeZone translation so make sure your server/configuration coincide
 
     - **day** First part is day of the week, eg here 0 to 7 - 0 being Sunday
 
